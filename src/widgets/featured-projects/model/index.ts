@@ -1,0 +1,1 @@
+export { useFeaturedProjects } from './useFeaturedProjects'
