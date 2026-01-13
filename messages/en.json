@@ -97,5 +97,14 @@
       "aws": "AWS",
       "openai": "OpenAI"
     }
+  },
+  "metadata": {
+    "title": "Software Developer - Portfolio",
+    "description": "Senior Software Engineer specializing in scalable architectures, AI, and Full-Stack development",
+    "openGraph": {
+      "title": "Software Developer - Portfolio",
+      "description": "Senior Software Engineer specializing in scalable architectures, AI, and Full-Stack development",
+      "siteName": "DevPortfolio"
+    }
   }
 }

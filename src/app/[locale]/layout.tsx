@@ -1,7 +1,7 @@
 import type React from 'react'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { Noto_Sans, Space_Grotesk, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -25,28 +25,53 @@ const geistMono = Geist_Mono({
   variable: '--font-mono',
 })
 
-export const metadata: Metadata = {
-  title: 'Desarrollador de Software - Portfolio',
-  description:
-    'Senior Software Engineer especialista en arquitecturas escalables, IA y desarrollo Full-Stack',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'metadata' })
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://devportfolio.com'
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    generator: 'v0.app',
+    icons: {
+      icon: [
+        {
+          url: '/icon-light-32x32.png',
+          media: '(prefers-color-scheme: light)',
+        },
+        {
+          url: '/icon-dark-32x32.png',
+          media: '(prefers-color-scheme: dark)',
+        },
+        {
+          url: '/icon.svg',
+          type: 'image/svg+xml',
+        },
+      ],
+      apple: '/apple-icon.png',
+    },
+    openGraph: {
+      title: t('openGraph.title'),
+      description: t('openGraph.description'),
+      siteName: t('openGraph.siteName'),
+      locale: locale,
+      type: 'website',
+    },
+    alternates: {
+      canonical: `${baseUrl}/${locale}`,
+      languages: {
+        es: `${baseUrl}/es`,
+        en: `${baseUrl}/en`,
+        'x-default': `${baseUrl}/es`,
       },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+    },
+  }
 }
 
 export function generateStaticParams() {
