@@ -1,3 +1,5 @@
+'use client'
+
 import {
   ArrowLeft,
   ArrowRight,
@@ -5,6 +7,7 @@ import {
   ArrowUpRight,
   Activity,
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { Card } from '@/shared/ui/card'
 import { projects } from '@/entities/project/lib'
 
@@ -17,6 +20,8 @@ function TechTag({ label }: { label: string }) {
 }
 
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
+  const t = useTranslations('projects')
+
   return (
     <div className="glass-card rounded-3xl p-8 h-full flex flex-col justify-between overflow-hidden relative hover:bg-surface/60 hover:border-primary/30 transition-all duration-300">
       <div className="relative z-10">
@@ -33,7 +38,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         </p>
         <div className="opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
           <button className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
-            Ver Caso de Estudio
+            {t('cta.viewCase')}
             <ExternalLink className="size-4" />
           </button>
         </div>
@@ -98,6 +103,8 @@ function IconProjectCard({ project }: { project: (typeof projects)[2] }) {
 }
 
 function WideProjectCard({ project }: { project: (typeof projects)[3] }) {
+  const t = useTranslations('projects')
+
   return (
     <div className="glass-card rounded-3xl p-8 h-full flex flex-col md:flex-row gap-8 overflow-hidden relative hover:bg-surface/60 hover:border-primary/30 transition-all duration-300">
       <div className="flex-1 space-y-4">
@@ -114,7 +121,7 @@ function WideProjectCard({ project }: { project: (typeof projects)[3] }) {
         </p>
         <div className="pt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
           <button className="border border-white/20 hover:border-white/40 bg-white/5 text-white px-6 py-3 rounded-xl font-bold text-sm transition-all">
-            Detalles Técnicos
+            {t('cta.viewDetails')}
           </button>
         </div>
       </div>
@@ -140,6 +147,8 @@ function WideProjectCard({ project }: { project: (typeof projects)[3] }) {
 }
 
 export function FeaturedProjects() {
+  const t = useTranslations('projects')
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10" />
@@ -150,18 +159,16 @@ export function FeaturedProjects() {
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-[10px] font-bold text-neon-blue uppercase tracking-widest">
               <span className="size-1.5 rounded-full bg-neon-blue animate-pulse" />
-              Portfolio
+              {t('badge')}
             </div>
             <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight text-balance">
-              Proyectos{' '}
+              {t('title')}{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">
-                Destacados
+                {t('titleHighlight')}
               </span>
             </h2>
             <p className="text-gray-400 max-w-xl text-lg leading-relaxed">
-              Una selección de arquitecturas digitales diseñadas para el
-              rendimiento, la escalabilidad y la experiencia de usuario
-              excepcional.
+              {t('description')}
             </p>
           </div>
 
@@ -195,11 +202,11 @@ export function FeaturedProjects() {
 
         <div className="mt-20 text-center">
           <p className="text-gray-500 text-sm font-medium uppercase tracking-widest mb-6">
-            ¿Tienes un proyecto ambicioso en mente?
+            {t('callToAction')}
           </p>
           <a href="#" className="inline-flex items-center gap-3 group">
             <span className="text-2xl md:text-3xl font-bold font-display border-b-2 border-primary/40 group-hover:border-primary transition-all">
-              Ver todos los proyectos
+              {t('cta.viewAll')}
             </span>
             <ArrowRight className="size-6 text-primary group-hover:translate-x-2 transition-transform" />
           </a>
