@@ -1,27 +1,31 @@
-import { CheckCircle, Award, Rocket } from 'lucide-react'
+'use client'
 
-const stats = [
-  {
-    icon: CheckCircle,
-    value: '+40',
-    label: 'Éxitos logrados',
-    color: 'neon-blue',
-  },
-  {
-    icon: Award,
-    value: '6+',
-    label: 'Años experiencia',
-    color: 'primary',
-  },
-  {
-    icon: Rocket,
-    value: '25',
-    label: 'MVPs Lanzados',
-    color: 'neon-purple',
-  },
-]
+import { CheckCircle, Award, Rocket } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export function StatsCards() {
+  const t = useTranslations('stats')
+
+  const stats = [
+    {
+      icon: CheckCircle,
+      value: t('achievements.value'),
+      label: t('achievements.label'),
+      color: 'neon-blue',
+    },
+    {
+      icon: Award,
+      value: t('experience.value'),
+      label: t('experience.label'),
+      color: 'primary',
+    },
+    {
+      icon: Rocket,
+      value: t('mvps.value'),
+      label: t('mvps.label'),
+      color: 'neon-purple',
+    },
+  ]
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 w-full max-w-5xl">
       {stats.map((stat, index) => (
