@@ -41,7 +41,7 @@ export function Hero() {
             <Sparkles className="size-3 sm:size-3.5" /> {t('badge')}
           </div>
 
-          <h1 className="text-7xl sm:text-7xl md:text-8xl lg:text-8xl font-bold tracking-tight font-display leading-[1.1] text-white px-4 sm:px-0 w-full flex flex-col items-center">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-bold tracking-tight font-display leading-[1.1] text-white px-4 sm:px-0 w-full flex flex-col items-center">
             <span>Turning ideas</span>
             <span>into software</span>
             <span className="flex items-center gap-2 sm:gap-3">
@@ -56,11 +56,17 @@ export function Hero() {
                   texts={rotatingWords}
                   mainClassName="inline-flex"
                   elementLevelClassName="text-white"
-                  splitBy="words"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
+                  splitBy="characters"
+                  staggerDuration={0.05}
+                  staggerFrom="first"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{
+                    type: 'spring',
+                    damping: 25,
+                    stiffness: 300,
+                  }}
                   rotationInterval={3000}
                 />
               </span>
