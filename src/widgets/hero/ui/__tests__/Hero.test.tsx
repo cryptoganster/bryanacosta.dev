@@ -33,11 +33,6 @@ vi.mock('../StatsCards', () => ({
   StatsCards: () => <div data-testid="stats-cards">Stats</div>,
 }))
 
-// Mock FloatingCards
-vi.mock('../FloatingCards', () => ({
-  FloatingCards: () => <div data-testid="floating-cards">Floating Cards</div>,
-}))
-
 // Mock SocialLinks
 vi.mock('@/features/social-share/ui/SocialLinks', () => ({
   SocialLinks: () => <div data-testid="social-links">Social Links</div>,
@@ -183,7 +178,6 @@ describe('Hero', () => {
     expect(screen.getByTestId('avatar')).toBeDefined()
     expect(screen.getByTestId('tech-stack-scroller')).toBeDefined()
     expect(screen.getByTestId('stats-cards')).toBeDefined()
-    expect(screen.getByTestId('floating-cards')).toBeDefined()
     expect(screen.getByTestId('social-links')).toBeDefined()
   })
 
