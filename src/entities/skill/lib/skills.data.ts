@@ -1,10 +1,34 @@
 import type { Skill } from '../types'
 
 export const skills: Skill[] = [
-  { name: 'React', icon: 'layers', category: 'Frontend' },
-  { name: 'TypeScript', icon: 'file-code', category: 'Frontend' },
-  { name: 'Python', icon: 'code2', category: 'Backend' },
-  { name: 'PostgreSQL', icon: 'database', category: 'Database' },
-  { name: 'AWS', icon: 'cloud', category: 'DevOps' },
-  { name: 'OpenAI', icon: 'bot', category: 'AI' },
+  {
+    name: 'skills.items.react',
+    icon: 'layers',
+    category: 'skills.categories.frontend',
+  },
+  {
+    name: 'skills.items.typescript',
+    icon: 'file-code',
+    category: 'skills.categories.frontend',
+  },
+  {
+    name: 'skills.items.python',
+    icon: 'code2',
+    category: 'skills.categories.backend',
+  },
+  {
+    name: 'skills.items.postgresql',
+    icon: 'database',
+    category: 'skills.categories.database',
+  },
+  {
+    name: 'skills.items.aws',
+    icon: 'cloud',
+    category: 'skills.categories.devops',
+  },
+  {
+    name: 'skills.items.openai',
+    icon: 'bot',
+    category: 'skills.categories.ai',
+  },
 ]

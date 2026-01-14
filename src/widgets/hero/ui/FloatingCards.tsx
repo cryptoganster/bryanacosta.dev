@@ -1,6 +1,10 @@
+'use client'
+
 import { Activity } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export function FloatingCards() {
+  const t = useTranslations('floatingCards')
   return (
     <div className="absolute -bottom-10 -right-20 lg:right-5 w-[420px] h-auto z-0 opacity-40 lg:opacity-100 pointer-events-none hidden xl:block perspective-2000">
       {/* Code Card */}
@@ -12,7 +16,7 @@ export function FloatingCards() {
             <div className="size-2.5 rounded-full bg-green-500/80" />
           </div>
           <div className="text-[11px] text-muted-foreground font-mono tracking-tight uppercase">
-            realtime_metrics.py
+            {t('codeCard.filename')}
           </div>
         </div>
         <div className="space-y-3">
@@ -33,9 +37,11 @@ export function FloatingCards() {
       {/* App Card */}
       <div className="glass-card p-5 rounded-2xl shadow-2xl border-t-4 border-t-neon-green transform rotate-[5deg] -translate-y-24 translate-x-24 animate-float bg-surface/95 z-30">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-sm font-bold text-white">Fintech Platform</span>
+          <span className="text-sm font-bold text-white">
+            {t('appCard.title')}
+          </span>
           <span className="px-2 py-0.5 rounded-full text-[9px] bg-neon-green/20 text-neon-green font-black tracking-wider">
-            ONLINE
+            {t('appCard.status')}
           </span>
         </div>
         <div className="space-y-3">
@@ -48,7 +54,7 @@ export function FloatingCards() {
             <div className="aspect-[4/3] bg-white/5 rounded-xl border border-white/10" />
           </div>
           <div className="mt-2 w-full bg-primary h-10 rounded-xl flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-primary/20">
-            Confirm Transaction
+            {t('appCard.cta')}
           </div>
         </div>
       </div>

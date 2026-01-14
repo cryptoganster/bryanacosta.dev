@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/shared/ui/button'
 import { Avatar } from '@/shared/ui/avatar'
 import { TechStackScroller } from './TechStackScroller'
@@ -7,6 +8,7 @@ import { FloatingCards } from './FloatingCards'
 import { SocialLinks } from '@/features/social-share/ui/SocialLinks'
 
 export function Hero() {
+  const t = useTranslations('hero')
   return (
     <main className="relative min-h-screen pt-36 pb-24 flex flex-col items-center overflow-hidden">
       <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/20 rounded-full blur-[160px] -z-10 opacity-50" />
@@ -29,42 +31,38 @@ export function Hero() {
 
         <div className="text-center space-y-8 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs font-semibold uppercase tracking-[0.2em] text-neon-blue">
-            <Sparkles className="size-3.5" /> Software Developer
+            <Sparkles className="size-3.5" /> {t('badge')}
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight font-display leading-[1.05] text-white text-balance">
-            Construyo el futuro con{' '}
+            {t('title')}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-primary to-neon-purple animate-pulse-glow">
-              código de alto impacto
+              {t('titleHighlight')}
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed text-pretty">
-            Especialista en arquitecturas escalables, IA y desarrollo
-            Full-Stack. Transformo la visión de tu startup en productos
-            digitales robustos y memorables.
+            {t('description')}
           </p>
 
           <TechStackScroller />
 
           <div className="flex flex-col sm:flex-row items-center gap-5 w-full justify-center pt-4">
             <Button className="w-full sm:w-auto h-14 px-10 rounded-2xl bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-[0_0_30px_rgba(37,37,244,0.4)] hover:shadow-[0_0_45px_rgba(37,37,244,0.6)] hover:-translate-y-1 active:scale-95">
-              Explorar Proyectos <ArrowRight className="ml-2 size-4" />
+              {t('cta.explore')} <ArrowRight className="ml-2 size-4" />
             </Button>
             <Button
               variant="outline"
               className="w-full sm:w-auto h-14 px-10 rounded-2xl border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-white font-bold transition-all hover:-translate-y-1 active:scale-95"
             >
-              Iniciar Contacto
+              {t('cta.contact')}
             </Button>
             <SocialLinks />
           </div>
 
           <div className="flex items-center justify-center gap-3 text-xs md:text-sm text-muted-foreground uppercase tracking-widest pt-2">
             <CheckCircle2 className="text-neon-green size-4" />
-            <span>
-              Proyectos entregados a tiempo y con calidad técnica garantizada
-            </span>
+            <span>{t('guarantee')}</span>
           </div>
 
           <StatsCards />

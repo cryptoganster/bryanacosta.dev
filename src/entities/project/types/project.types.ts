@@ -1,12 +1,12 @@
 export interface Project {
   id: number
-  title: string
-  description: string
+  titleKey: string
+  descriptionKey: string
   tags?: string[]
   type: 'featured' | 'small' | 'icon' | 'wide'
   image?: string
-  category?: string
-  stat?: string
+  categoryKey?: string
+  statKey?: string
 }
 
 export interface ProjectTag {
