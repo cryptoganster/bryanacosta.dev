@@ -25,6 +25,13 @@ export function Hero() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  const handleExploreClick = () => {
+    const projectsSection = document.querySelector('#projects')
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
     <main className="relative min-h-screen pt-32 sm:pt-32 md:pt-36 pb-16 md:pb-24 flex flex-col items-center overflow-x-hidden bg-transparent">
       {/* Blur backgrounds */}
@@ -33,7 +40,7 @@ export function Hero() {
         style={{ background: '#4E03F9', zIndex: 1 }}
       />
       <div
-        className="absolute bottom-[10%] right-[-10%] w-[70vw] max-w-[500px] h-[50vh] max-h-[500px] rounded-full blur-[100px] md:blur-[120px] opacity-40 pointer-events-none"
+        className="absolute bottom-[40%] right-[-10%] w-[70vw] max-w-[500px] h-[50vh] max-h-[500px] rounded-full blur-[150px] md:blur-[200px] opacity-35 pointer-events-none"
         style={{ background: '#CC5183', zIndex: 1 }}
       />
       <div
@@ -135,7 +142,8 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 w-full justify-center pt-2 sm:pt-4 px-4 sm:px-0">
             <Button
-              className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-2xl text-white font-bold transition-all hover:-translate-y-1 active:scale-95"
+              onClick={handleExploreClick}
+              className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-2xl text-white font-bold transition-all hover:-translate-y-1 active:scale-95 cursor-pointer"
               style={{
                 background: '#4A2BFC',
                 boxShadow: isMobile ? 'none' : '0 0 30px rgba(72, 0, 255, 0.4)',

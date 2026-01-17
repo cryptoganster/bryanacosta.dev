@@ -2,25 +2,7 @@
 
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-
-const techStack = [
-  { logo: '/logos/python.png', altKey: 'python' },
-  { logo: '/logos/java.png', altKey: 'java' },
-  { logo: '/logos/typescript.png', altKey: 'typescript' },
-  { logo: '/logos/nodejs.png', altKey: 'nodejs' },
-  { logo: '/logos/nestjs.svg', altKey: 'nestjs' },
-  { logo: '/logos/html5.png', altKey: 'html5' },
-  { logo: '/logos/css3.png', altKey: 'css3' },
-  { logo: '/logos/javascript.png', altKey: 'javascript' },
-  { logo: '/logos/react.png', altKey: 'react' },
-  { logo: '/logos/vite.png', altKey: 'vite' },
-  { logo: '/logos/postgres.png', altKey: 'postgres' },
-  { logo: '/logos/aws.png', altKey: 'aws' },
-  { logo: '/logos/google-cloud.png', altKey: 'googleCloud' },
-  { logo: '/logos/azure.png', altKey: 'azure' },
-  { logo: '/logos/kubernetes.png', altKey: 'kubernetes' },
-  { logo: '/logos/terraform.svg', altKey: 'terraform' },
-]
+import { techStack } from '@/entities/tech-stack'
 
 /**
  * OPTIMIZADO PARA MÓVILES - CSS puro con GPU acceleration

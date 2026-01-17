@@ -35,7 +35,7 @@ export function LanguageSwitcher({
   }
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
@@ -46,10 +46,12 @@ export function LanguageSwitcher({
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('touchstart', handleClickOutside)
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
     }
   }, [isOpen])
 
@@ -58,11 +60,11 @@ export function LanguageSwitcher({
   // Inline variant for mobile menu - expands horizontally
   if (variant === 'inline') {
     return (
-      <div className="relative w-full" ref={dropdownRef}>
+      <div className="relative w-full touch-manipulation" ref={dropdownRef}>
         {!isOpen ? (
           <button
             onClick={() => setIsOpen(true)}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-white/10 backdrop-blur-sm text-white border border-white/20"
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-white/10 backdrop-blur-sm text-white border border-white/20 active:scale-95"
             aria-label="Change language"
             aria-expanded={isOpen}
           >
@@ -76,7 +78,7 @@ export function LanguageSwitcher({
               <button
                 key={loc}
                 onClick={() => handleLocaleChange(loc)}
-                className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-full text-sm font-medium transition-all duration-300 active:scale-95 ${
                   locale === loc
                     ? 'bg-white/10 backdrop-blur-sm text-white border border-white/20'
                     : 'text-muted-foreground hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10'

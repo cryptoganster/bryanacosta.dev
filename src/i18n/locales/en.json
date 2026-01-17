@@ -25,7 +25,7 @@
     "description": "Building, improving, scaling, and maintaining products designed to grow with your business and deliver long-term value",
     "cta": {
       "explore": "Explore Projects",
-      "contact": "Start Contact"
+      "contact": "@ Contact Me"
     },
     "guarantee": "Projects delivered on time with guaranteed technical quality",
     "avatarAlt": "Developer Avatar"
@@ -48,17 +48,75 @@
     "badge": "Portfolio",
     "title": "Featured",
     "titleHighlight": "Projects",
-    "description": "A selection of digital architectures designed for performance, scalability, and exceptional user experience.",
+    "description": "Projects I’ve contributed to as a developer, showcasing secure, robust, and distributed system designs, high uptime, clean and maintainable code, complex algorithms, and production-ready software engineered for performance and reliability.",
     "cta": {
       "viewCase": "View Case Study",
+      "viewCode": "View Code",
       "viewDetails": "Technical Details",
-      "viewAll": "View all projects"
+      "viewAll": "View all projects",
+      "buildSomething": "Want to build something like this?",
+      "letsTalk": "Let's talk"
     },
     "callToAction": "Have an ambitious project in mind?",
     "items": {
       "defi": {
-        "title": "DeFi Protocol Dashboard",
-        "description": "Institutional platform for real-time monitoring of digital assets and smart contracts with bank-grade security."
+        "title": "DeFi Market Intelligence Platform",
+        "description": "Mempool-level data ingestion, block-level simulation, and atomic bundle execution across chains.",
+        "caseStudy": {
+          "title": "Case Study",
+          "problem": "The rapid growth of DeFi ecosystems has increased market fragmentation, execution latency, and MEV competition across chains. Traders and protocol operators require real-time visibility into mempool activity, accurate block-level simulations, and deterministic execution paths to identify and act on MEV opportunities efficiently.",
+          "problemSection": {
+            "title": "Problem",
+            "description": "Inefficient MEV extraction caused by:",
+            "items": [
+              "High execution risk due to state divergence and latency",
+              "Lack of unified visibility across multi-chain mempools",
+              "Inaccurate gas pricing",
+              "Failed simulations",
+              "Bundle collisions",
+              "Poor observability into strategy performance and execution health"
+            ]
+          },
+          "solutionSection": {
+            "title": "Solution",
+            "description": "A real-time DeFi market intelligence and execution platform that:",
+            "items": [
+              "Ingests raw mempool data across multiple chains",
+              "Simulates transactions at block-level accuracy",
+              "Constructs and submits atomic bundles via private relays",
+              "Provides a unified dashboard for market data, MEV strategies, and execution metrics"
+            ]
+          },
+          "capabilitiesSection": {
+            "title": "Key Capabilities",
+            "items": [
+              {
+                "icon": "visibility",
+                "text": "Mempool-level transaction monitoring (pending swaps, liquidations, arbitrage paths)"
+              },
+              {
+                "icon": "science",
+                "text": "Deterministic block simulation (pre-state & post-state validation)"
+              },
+              {
+                "icon": "package_2",
+                "text": "Atomic bundle construction and submission (Flashbots / private relays)"
+              },
+              {
+                "icon": "speed",
+                "text": "Low-latency execution pipelines with dynamic gas optimization"
+              },
+              {
+                "icon": "analytics",
+                "text": "Real-time analytics: PnL, latency, success rate, reverted txs"
+              },
+              {
+                "icon": "shield",
+                "text": "Risk controls: max loss, kill switch, execution guards"
+              }
+            ]
+          }
+        }
       },
       "neural": {
         "title": "Neural Engine API",
@@ -134,17 +192,26 @@
     "java": "Java",
     "typescript": "TypeScript",
     "nodejs": "Node.js",
-    "nestjs": "NestJS",
+    "nestjs": "Nest.jS",
     "html5": "HTML5",
     "css3": "CSS3",
     "javascript": "JavaScript",
     "react": "React",
     "vite": "Vite",
+    "nextjs": "Next.js",
+    "tailwindcss": "Tailwind CSS",
+    "vue": "Vue",
+    "figma": "Figma",
+    "rust": "Rust",
     "postgres": "PostgreSQL",
+    "redis": "Redis",
     "aws": "AWS",
     "googleCloud": "Google Cloud",
     "azure": "Azure",
     "kubernetes": "Kubernetes",
-    "terraform": "Terraform"
+    "terraform": "Terraform",
+    "docker": "Docker",
+    "digitalOcean": "Digital Ocean",
+    "grafana": "Grafana"
   }
 }

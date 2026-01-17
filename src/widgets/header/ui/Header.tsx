@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Terminal, Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from '@/shared/ui/button'
 import { FloatingPillNav, useNavigation } from '@/features/navigation'
 import { LanguageSwitcher } from '@/shared/ui/language-switcher'
@@ -56,6 +57,43 @@ export function Header() {
                 <LanguageSwitcher />
               </div>
 
+              {/* Divider */}
+              <div className="hidden md:block h-6 w-px bg-white/20" />
+
+              {/* Social Links - Desktop only */}
+              <div className="hidden md:flex items-center gap-2">
+                <a
+                  href="https://linkedin.com/in/bryan-stevens-acosta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="size-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
+                  aria-label="LinkedIn"
+                >
+                  <Image
+                    src="/social-logos/linkedin.svg"
+                    alt="LinkedIn"
+                    width={20}
+                    height={20}
+                    className="size-5"
+                  />
+                </a>
+                <a
+                  href="https://github.com/bryanstevensacosta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="size-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
+                  aria-label="GitHub"
+                >
+                  <Image
+                    src="/social-logos/github.svg"
+                    alt="GitHub"
+                    width={20}
+                    height={20}
+                    className="size-5"
+                  />
+                </a>
+              </div>
+
               {/* Mobile Menu Button */}
               <Button
                 variant="ghost"
@@ -103,8 +141,45 @@ export function Header() {
             <div className="h-px bg-white/10 mx-4" />
 
             {/* Language Switcher */}
-            <div className="p-4 pb-6">
+            <div className="p-4">
               <LanguageSwitcher variant="inline" />
+            </div>
+
+            {/* Divider */}
+            <div className="h-px bg-white/10 mx-4" />
+
+            {/* Social Links - Mobile */}
+            <div className="p-4 pb-6 flex items-center justify-center gap-4">
+              <a
+                href="https://linkedin.com/in/bryan-stevens-acosta"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="size-12 rounded-full flex items-center justify-center hover:bg-white/10 transition-all active:scale-95"
+                aria-label="LinkedIn"
+              >
+                <Image
+                  src="/social-logos/linkedin.svg"
+                  alt="LinkedIn"
+                  width={24}
+                  height={24}
+                  className="size-6"
+                />
+              </a>
+              <a
+                href="https://github.com/bryanstevensacosta"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="size-12 rounded-full flex items-center justify-center hover:bg-white/10 transition-all active:scale-95"
+                aria-label="GitHub"
+              >
+                <Image
+                  src="/social-logos/github.svg"
+                  alt="GitHub"
+                  width={24}
+                  height={24}
+                  className="size-6"
+                />
+              </a>
             </div>
           </div>
         </div>

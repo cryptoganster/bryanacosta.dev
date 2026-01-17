@@ -51,14 +51,72 @@
     "description": "Una selección de arquitecturas digitales diseñadas para el rendimiento, la escalabilidad y la experiencia de usuario excepcional.",
     "cta": {
       "viewCase": "Ver Caso de Estudio",
+      "viewCode": "Ver Código",
       "viewDetails": "Detalles Técnicos",
-      "viewAll": "Ver todos los proyectos"
+      "viewAll": "Ver todos los proyectos",
+      "buildSomething": "¿Quieres construir algo como esto?",
+      "letsTalk": "Hablemos"
     },
     "callToAction": "¿Tienes un proyecto ambicioso en mente?",
     "items": {
       "defi": {
         "title": "DeFi Protocol Dashboard",
-        "description": "Plataforma institucional para el monitoreo de activos digitales y smart contracts en tiempo real con seguridad de grado bancario."
+        "description": "Plataforma institucional para el monitoreo de activos digitales y smart contracts en tiempo real con seguridad de grado bancario.",
+        "caseStudy": {
+          "title": "Caso de Estudio",
+          "problem": "El rápido crecimiento de los ecosistemas DeFi ha aumentado la fragmentación del mercado, la latencia de ejecución y la competencia MEV entre cadenas. Los traders y operadores de protocolos requieren visibilidad en tiempo real de la actividad del mempool, simulaciones precisas a nivel de bloque y rutas de ejecución deterministas para identificar y actuar sobre oportunidades MEV de manera eficiente.",
+          "problemSection": {
+            "title": "Problema",
+            "description": "Extracción MEV ineficiente causada por:",
+            "items": [
+              "Alto riesgo de ejecución debido a divergencia de estado y latencia",
+              "Falta de visibilidad unificada en mempools multi-cadena",
+              "Precios de gas inexactos",
+              "Simulaciones fallidas",
+              "Colisiones de bundles",
+              "Poca observabilidad del rendimiento de estrategias y salud de ejecución"
+            ]
+          },
+          "solutionSection": {
+            "title": "Solución",
+            "description": "Una plataforma de inteligencia de mercado DeFi y ejecución en tiempo real que:",
+            "items": [
+              "Ingiere datos crudos de mempool en múltiples cadenas",
+              "Simula transacciones con precisión a nivel de bloque",
+              "Construye y envía bundles atómicos vía relays privados",
+              "Proporciona un dashboard unificado para datos de mercado, estrategias MEV y métricas de ejecución"
+            ]
+          },
+          "capabilitiesSection": {
+            "title": "Capacidades Clave",
+            "items": [
+              {
+                "icon": "visibility",
+                "text": "Monitoreo de transacciones a nivel de mempool (swaps pendientes, liquidaciones, rutas de arbitraje)"
+              },
+              {
+                "icon": "science",
+                "text": "Simulación determinista de bloques (validación de pre-estado y post-estado)"
+              },
+              {
+                "icon": "package_2",
+                "text": "Construcción y envío de bundles atómicos (Flashbots / relays privados)"
+              },
+              {
+                "icon": "speed",
+                "text": "Pipelines de ejecución de baja latencia con optimización dinámica de gas"
+              },
+              {
+                "icon": "analytics",
+                "text": "Analíticas en tiempo real: PnL, latencia, tasa de éxito, txs revertidas"
+              },
+              {
+                "icon": "shield",
+                "text": "Controles de riesgo: pérdida máxima, interruptor de emergencia, guardias de ejecución"
+              }
+            ]
+          }
+        }
       },
       "neural": {
         "title": "Neural Engine API",
@@ -140,11 +198,20 @@
     "javascript": "JavaScript",
     "react": "React",
     "vite": "Vite",
+    "nextjs": "Next.js",
+    "tailwindcss": "Tailwind CSS",
+    "vue": "Vue",
+    "figma": "Figma",
+    "rust": "Rust",
     "postgres": "PostgreSQL",
+    "redis": "Redis",
     "aws": "AWS",
     "googleCloud": "Google Cloud",
     "azure": "Azure",
     "kubernetes": "Kubernetes",
-    "terraform": "Terraform"
+    "terraform": "Terraform",
+    "docker": "Docker",
+    "digitalOcean": "Digital Ocean",
+    "grafana": "Grafana"
   }
 }

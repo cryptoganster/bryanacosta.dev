@@ -21,33 +21,31 @@ vi.mock('@/entities/project/lib', () => ({
       id: 1,
       titleKey: 'projects.items.defi.title',
       descriptionKey: 'projects.items.defi.description',
-      tags: ['React', 'TypeScript'],
-      type: 'featured',
+      techStackKeys: ['react', 'typescript'],
       image: '/placeholder.jpg',
     },
     {
       id: 2,
       titleKey: 'projects.items.neural.title',
       descriptionKey: 'projects.items.neural.description',
-      tags: ['Node.js', 'Python'],
+      techStackKeys: ['nodejs', 'python'],
       categoryKey: 'projects.items.neural.category',
-      type: 'small',
     },
     {
       id: 3,
       titleKey: 'projects.items.saas.title',
       descriptionKey: 'projects.items.saas.description',
-      type: 'icon',
+      techStackKeys: ['typescript'],
       statKey: 'projects.items.saas.stat',
     },
     {
       id: 4,
       titleKey: 'projects.items.fintech.title',
       descriptionKey: 'projects.items.fintech.description',
-      tags: ['Fintech', 'Architecture'],
-      type: 'wide',
+      techStackKeys: ['java', 'postgres'],
     },
   ],
+  getTechStackIcons: () => [],
 }))
 
 // Mock lucide-react icons
@@ -113,15 +111,16 @@ describe('FeaturedProjects', () => {
       )
     ).toBeDefined()
 
-    // Check CTA buttons
-    expect(screen.getAllByText('Ver Caso de Estudio').length).toBeGreaterThan(0)
-    expect(screen.getByText('Detalles Técnicos')).toBeDefined()
+    // Check CTA
     expect(screen.getByText('Ver todos los proyectos')).toBeDefined()
 
     // Check call to action
     expect(
       screen.getByText('¿Tienes un proyecto ambicioso en mente?')
     ).toBeDefined()
+
+    // Check hover text
+    expect(screen.getAllByText('View Project').length).toBeGreaterThan(0)
 
     // Check project titles are translated
     expect(screen.getByText('DeFi Protocol Dashboard')).toBeDefined()
@@ -179,13 +178,14 @@ describe('FeaturedProjects', () => {
       )
     ).toBeDefined()
 
-    // Check CTA buttons
-    expect(screen.getAllByText('View Case Study').length).toBeGreaterThan(0)
-    expect(screen.getByText('Technical Details')).toBeDefined()
+    // Check CTA
     expect(screen.getByText('View all projects')).toBeDefined()
 
     // Check call to action
     expect(screen.getByText('Have an ambitious project in mind?')).toBeDefined()
+
+    // Check hover text
+    expect(screen.getAllByText('View Project').length).toBeGreaterThan(0)
 
     // Check project titles are translated
     expect(screen.getByText('DeFi Protocol Dashboard')).toBeDefined()
@@ -215,15 +215,9 @@ describe('FeaturedProjects', () => {
 
     // Verify project translation keys are used (with full path for non-namespaced calls)
     expect(translationKeys).toContain('projects.items.defi.title')
-    expect(translationKeys).toContain('projects.items.defi.description')
     expect(translationKeys).toContain('projects.items.neural.title')
-    expect(translationKeys).toContain('projects.items.neural.description')
     expect(translationKeys).toContain('projects.items.saas.title')
-    expect(translationKeys).toContain('projects.items.saas.description')
     expect(translationKeys).toContain('projects.items.fintech.title')
-    expect(translationKeys).toContain('projects.items.fintech.description')
-    expect(translationKeys).toContain('projects.cta.viewCase')
-    expect(translationKeys).toContain('projects.cta.viewDetails')
 
     // Verify no hardcoded Spanish or English text
     expect(screen.queryByText('Proyectos Destacados')).toBeNull()

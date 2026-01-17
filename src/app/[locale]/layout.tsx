@@ -122,6 +122,12 @@ export default async function LocaleLayout({
   return (
     <ViewTransitions>
       <html lang={locale} className="dark">
+        <head>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          />
+        </head>
         <body
           className={`${notoSans.variable} ${spaceGrotesk.variable} ${geistMono.variable} ${figtree.variable} ${cookie.variable} ${bricolageGrotesque.variable} font-sans antialiased overflow-x-hidden`}
         >
