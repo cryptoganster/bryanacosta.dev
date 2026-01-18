@@ -26,7 +26,29 @@ export function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  const handleNavClick = () => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const element = document.querySelector(href)
+      if (element) {
+        // Detect viewport size for responsive offset
+        const isMobile = window.innerWidth < 768
+        const headerOffset = isMobile ? 25 : 88
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset
+
+        console.log('Mobile:', isMobile, 'Offset:', headerOffset) // Debug log
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
+      }
+    }
     setIsMobileMenuOpen(false)
   }
 
@@ -130,7 +152,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-white hover:bg-white/5 rounded-xl transition-all"
-                  onClick={handleNavClick}
+                  onClick={(e) => handleNavClick(e, item.href)}
                 >
                   {item.label}
                 </a>

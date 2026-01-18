@@ -1,4 +1,7 @@
 {
   "kiroAgent.configureMCP": "Enabled",
-  "livePreview.defaultPreviewPath": "/mocks/coinfi-mock/index.html"
+  "livePreview.defaultPreviewPath": "/mocks/coinfi-mock/index.html",
+  "javascript.autoClosingTags": false,
+  "html.autoClosingTags": false,
+  "typescript.autoClosingTags": false
 }

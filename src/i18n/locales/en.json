@@ -60,73 +60,189 @@
     "callToAction": "Have an ambitious project in mind?",
     "items": {
       "defi": {
-        "title": "DeFi Market Intelligence Platform",
-        "description": "Mempool-level data ingestion, block-level simulation, and atomic bundle execution across chains.",
+        "title": "Crypto Wallet Android App",
+        "description": "Non-custodial mobile wallet with multi-chain support, real-time portfolio tracking, and secure transaction signing.",
         "caseStudy": {
           "title": "Case Study",
-          "problem": "The rapid growth of DeFi ecosystems has increased market fragmentation, execution latency, and MEV competition across chains. Traders and protocol operators require real-time visibility into mempool activity, accurate block-level simulations, and deterministic execution paths to identify and act on MEV opportunities efficiently.",
+          "problem": "The fragmented DeFi landscape forces users to juggle multiple wallets, manually track assets across chains, and navigate complex interfaces with poor mobile UX. Security concerns around private key management, phishing attacks, and transaction simulation failures create friction and risk. Users need a unified, mobile-first solution that simplifies multi-chain asset management while maintaining security and transparency.",
           "problemSection": {
             "title": "Problem",
-            "description": "Inefficient MEV extraction caused by:",
+            "description": "Mobile DeFi users faced critical challenges:",
             "items": [
-              "High execution risk due to state divergence and latency",
-              "Lack of unified visibility across multi-chain mempools",
-              "Inaccurate gas pricing",
-              "Failed simulations",
-              "Bundle collisions",
-              "Poor observability into strategy performance and execution health"
+              "Fragmented wallet experience across multiple chains and protocols",
+              "Poor mobile UX with desktop-first interfaces ported to mobile",
+              "Lack of real-time portfolio visibility and transaction history",
+              "Security risks from inadequate transaction simulation and approval flows",
+              "Complex private key management without compromising self-custody",
+              "Limited support for emerging chains and token standards"
             ]
           },
           "solutionSection": {
             "title": "Solution",
-            "description": "A real-time DeFi market intelligence and execution platform that:",
+            "description": "A mobile-native, non-custodial wallet designed for the multi-chain DeFi ecosystem:",
             "items": [
-              "Ingests raw mempool data across multiple chains",
-              "Simulates transactions at block-level accuracy",
-              "Constructs and submits atomic bundles via private relays",
-              "Provides a unified dashboard for market data, MEV strategies, and execution metrics"
+              "Unified interface for managing assets across Ethereum, Polygon, Arbitrum, and other EVM chains",
+              "Secure enclave-based private key storage with biometric authentication",
+              "Real-time portfolio tracking with token prices, balances, and transaction history",
+              "Transaction simulation and approval flow with clear risk indicators",
+              "Native support for DeFi protocols: swaps, staking, lending, and NFTs"
             ]
           },
           "capabilitiesSection": {
             "title": "Key Capabilities",
             "items": [
               {
+                "icon": "shield",
+                "text": "Secure Enclave key management with biometric unlock and transaction signing"
+              },
+              {
                 "icon": "visibility",
-                "text": "Mempool-level transaction monitoring (pending swaps, liquidations, arbitrage paths)"
+                "text": "Multi-chain portfolio dashboard with real-time price feeds and balance tracking"
               },
               {
                 "icon": "science",
-                "text": "Deterministic block simulation (pre-state & post-state validation)"
-              },
-              {
-                "icon": "package_2",
-                "text": "Atomic bundle construction and submission (Flashbots / private relays)"
+                "text": "Transaction simulation before signing to prevent failed or malicious transactions"
               },
               {
                 "icon": "speed",
-                "text": "Low-latency execution pipelines with dynamic gas optimization"
+                "text": "Optimized gas estimation with dynamic fee adjustment for faster confirmations"
               },
               {
                 "icon": "analytics",
-                "text": "Real-time analytics: PnL, latency, success rate, reverted txs"
+                "text": "Comprehensive transaction history with categorization and tax reporting support"
               },
               {
-                "icon": "shield",
-                "text": "Risk controls: max loss, kill switch, execution guards"
+                "icon": "package_2",
+                "text": "Native DeFi integrations: DEX aggregation, staking, lending, and NFT management"
               }
             ]
           }
         }
       },
       "neural": {
-        "title": "Neural Engine API",
-        "description": "Microservices infrastructure for natural language processing optimized for low latency.",
-        "category": "Backend Architecture"
+        "title": "Restaurant Delivery iOS App",
+        "description": "Cloud-native delivery platform with real-time coordination, smart dispatch, and deterministic order state management.",
+        "category": "Backend Architecture",
+        "image": "/projects-images/restaurant-delivery-app.png",
+        "caseStudy": {
+          "title": "Case Study",
+          "problem": "Modern food delivery platforms operate under constant pressure: unpredictable demand, strict time constraints, and real-world dependencies that don't fail gracefully. A single order touches multiple actors—customer, restaurant, courier, payment systems—where any delay or inconsistency compounds into poor delivery times and lost trust. At scale, coordinating these moving parts becomes a distributed systems problem, not just a marketplace.",
+          "problemSection": {
+            "title": "Problem",
+            "description": "Operational friction emerged from:",
+            "items": [
+              "Non-deterministic order flows - Orders changing state inconsistently across clients",
+              "Race conditions between preparation, dispatch, and pickup",
+              "Dispatch inefficiencies - Suboptimal courier assignment under real-world constraints",
+              "Poor handling of sudden demand spikes",
+              "Limited system resilience - Tight coupling between services amplifying failures",
+              "Slow recovery from partial outages",
+              "Scaling bottlenecks - Architecture not designed for city-level or regional expansion",
+              "Increasing latency as order volume grew"
+            ]
+          },
+          "solutionSection": {
+            "title": "Solution",
+            "description": "Built a cloud-native delivery platform optimized for real-time coordination and scale:",
+            "items": [
+              "Modeled the delivery flow as a state-driven, event-based system",
+              "Decoupled order management, dispatch, and tracking into independently scalable services",
+              "Introduced real-time synchronization across all actors",
+              "Designed infrastructure to scale horizontally without impacting latency or reliability"
+            ]
+          },
+          "capabilitiesSection": {
+            "title": "Key Capabilities",
+            "items": [
+              {
+                "icon": "shuffle",
+                "text": "Deterministic Order State Engine - Predictable transitions from order creation to completion, reduced failures caused by concurrent updates"
+              },
+              {
+                "icon": "route",
+                "text": "Smart Dispatch Layer - Context-aware courier assignment, dynamic ETA and routing recalculation"
+              },
+              {
+                "icon": "visibility",
+                "text": "Operational Visibility - Live insight into order flow, delays, and failure points"
+              },
+              {
+                "icon": "analytics",
+                "text": "Metrics-driven optimization of delivery performance"
+              },
+              {
+                "icon": "cloud",
+                "text": "Scalable Foundation - Region-agnostic deployment model"
+              },
+              {
+                "icon": "speed",
+                "text": "Built to handle peak demand without degradation"
+              }
+            ]
+          }
+        }
       },
       "saas": {
-        "title": "SaaS Analytics SDK",
-        "description": "Development kit for integrating advanced metrics in large-scale enterprise applications.",
-        "stat": "Performance +98%"
+        "title": "AI Social Media Management Terminal App",
+        "description": "Enterprise-grade automation platform for orchestrating high-volume social media and email campaigns across multiple providers.",
+        "caseStudy": {
+          "title": "Case Study",
+          "problem": "Fragmented automation workflows across disconnected tools and providers. Limited visibility into campaign execution, message queues, and delivery failures. Provider rate limits, API instability, and silent failures causing unpredictable outcomes. Lack of centralized observability and auditability for automated outbound activity. Difficulty scaling campaigns while maintaining reliability, compliance, and control.",
+          "problemSection": {
+            "title": "Problem",
+            "description": "Organizations faced operational challenges:",
+            "items": [
+              "Fragmented automation workflows across disconnected tools and providers",
+              "Limited visibility into campaign execution, message queues, and delivery failures",
+              "Provider rate limits, API instability, and silent failures causing unpredictable outcomes",
+              "Lack of centralized observability and auditability for automated outbound activity",
+              "Difficulty scaling campaigns while maintaining reliability, compliance, and control"
+            ]
+          },
+          "solutionSection": {
+            "title": "Solution",
+            "description": "A unified automation platform designed for operational control:",
+            "items": [
+              "Centralized orchestration of email and social automation pipelines with deterministic execution",
+              "Real-time monitoring of job execution, queues, and provider health",
+              "Built-in failure handling with retries, backoff strategies, and error classification",
+              "Operator-focused interface enabling fast diagnosis and operational control"
+            ]
+          },
+          "capabilitiesSection": {
+            "title": "Key Capabilities",
+            "items": [
+              {
+                "icon": "shuffle",
+                "text": "Campaign pipeline orchestration with scheduled and event-driven execution"
+              },
+              {
+                "icon": "speed",
+                "text": "High-throughput message queue with backpressure and rate-limit awareness"
+              },
+              {
+                "icon": "cloud",
+                "text": "Multi-provider abstraction layer for email and social platforms"
+              },
+              {
+                "icon": "analytics",
+                "text": "Real-time delivery metrics and historical performance tracking"
+              },
+              {
+                "icon": "route",
+                "text": "Structured error logging, retries, and dead-letter queues"
+              },
+              {
+                "icon": "visibility",
+                "text": "Audit trail for all automation actions and configuration changes"
+              },
+              {
+                "icon": "shield",
+                "text": "Role-based access control and environment separation (prod / staging / dry-run)"
+              }
+            ]
+          }
+        }
       },
       "fintech": {
         "title": "Fintech Core System",
@@ -212,6 +328,16 @@
     "terraform": "Terraform",
     "docker": "Docker",
     "digitalOcean": "Digital Ocean",
-    "grafana": "Grafana"
+    "grafana": "Grafana",
+    "swift": "Swift",
+    "uikit": "UIKit",
+    "mongodb": "MongoDB",
+    "kafka": "Apache Kafka",
+    "rabbitmq": "RabbitMQ",
+    "datadog": "Datadog",
+    "walletConnect": "WalletConnect",
+    "kotlin": "Kotlin",
+    "firebase": "Firebase",
+    "elastic-search": "Elasticsearch"
   }
 }

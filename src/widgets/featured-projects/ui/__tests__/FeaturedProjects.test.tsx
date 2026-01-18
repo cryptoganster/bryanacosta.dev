@@ -251,14 +251,4 @@ describe('FeaturedProjects', () => {
     expect(screen.getByText('SaaS Analytics SDK')).toBeDefined()
     expect(screen.getByText('Fintech Core System')).toBeDefined()
   })
-
-  it('should render navigation arrows', () => {
-    mockUseTranslations.mockImplementation((key: string) => key)
-
-    render(<FeaturedProjects />)
-
-    // Check that arrow icons are rendered
-    expect(screen.getAllByTestId('arrow-left-icon')).toBeDefined()
-    expect(screen.getAllByTestId('arrow-right-icon')).toBeDefined()
-  })
 })

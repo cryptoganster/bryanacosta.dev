@@ -79,12 +79,13 @@
           },
           "solutionSection": {
             "title": "Solución",
-            "description": "Una plataforma de inteligencia de mercado DeFi y ejecución en tiempo real que:",
+            "description": "Una billetera móvil nativa y no custodial diseñada para el ecosistema DeFi multi-cadena:",
             "items": [
-              "Ingiere datos crudos de mempool en múltiples cadenas",
-              "Simula transacciones con precisión a nivel de bloque",
-              "Construye y envía bundles atómicos vía relays privados",
-              "Proporciona un dashboard unificado para datos de mercado, estrategias MEV y métricas de ejecución"
+              "Interfaz unificada para gestionar activos en Ethereum, Polygon, Arbitrum y otras cadenas EVM",
+              "Almacenamiento de claves privadas basado en enclave seguro con autenticación biométrica",
+              "Seguimiento de portafolio en tiempo real con precios de tokens, balances e historial de transacciones",
+              "Simulación de transacciones y flujo de aprobación con indicadores claros de riesgo",
+              "Soporte nativo para protocolos DeFi: swaps, staking, préstamos y NFTs"
             ]
           },
           "capabilitiesSection": {
@@ -119,14 +120,129 @@
         }
       },
       "neural": {
-        "title": "Neural Engine API",
-        "description": "Infraestructura de microservicios para el procesamiento de lenguaje natural optimizado para baja latencia.",
-        "category": "Backend Architecture"
+        "title": "App de Delivery iOS para Restaurantes",
+        "description": "Plataforma de delivery nativa en la nube con coordinación en tiempo real, despacho inteligente y gestión determinista del estado de pedidos.",
+        "category": "Backend Architecture",
+        "image": "/projects-images/restaurant-delivery-app.png",
+        "caseStudy": {
+          "title": "Caso de Estudio",
+          "problem": "Las plataformas modernas de delivery de comida operan bajo presión constante: demanda impredecible, restricciones de tiempo estrictas y dependencias del mundo real que no fallan con gracia. Un solo pedido toca múltiples actores—cliente, restaurante, repartidor, sistemas de pago—donde cualquier retraso o inconsistencia se amplifica en tiempos de entrega pobres y pérdida de confianza. A escala, coordinar estas partes móviles se convierte en un problema de sistemas distribuidos, no solo un marketplace.",
+          "problemSection": {
+            "title": "Problema",
+            "description": "La fricción operacional surgió de:",
+            "items": [
+              "Flujos de pedidos no deterministas - Pedidos cambiando de estado inconsistentemente entre clientes",
+              "Condiciones de carrera entre preparación, despacho y recogida",
+              "Ineficiencias de despacho - Asignación subóptima de repartidores bajo restricciones del mundo real",
+              "Manejo pobre de picos repentinos de demanda",
+              "Resiliencia limitada del sistema - Acoplamiento estrecho entre servicios amplificando fallas",
+              "Recuperación lenta de interrupciones parciales",
+              "Cuellos de botella de escalabilidad - Arquitectura no diseñada para expansión a nivel de ciudad o regional",
+              "Latencia creciente a medida que aumentaba el volumen de pedidos"
+            ]
+          },
+          "solutionSection": {
+            "title": "Solución",
+            "description": "Construimos una plataforma de delivery nativa en la nube optimizada para coordinación en tiempo real y escala:",
+            "items": [
+              "Modelamos el flujo de delivery como un sistema basado en estados y eventos",
+              "Desacoplamos la gestión de pedidos, despacho y seguimiento en servicios escalables independientemente",
+              "Introdujimos sincronización en tiempo real entre todos los actores",
+              "Diseñamos infraestructura para escalar horizontalmente sin impactar latencia o confiabilidad"
+            ]
+          },
+          "capabilitiesSection": {
+            "title": "Capacidades Clave",
+            "items": [
+              {
+                "icon": "shuffle",
+                "text": "Motor de Estado de Pedidos Determinista - Transiciones predecibles desde creación hasta completación, reducción de fallas causadas por actualizaciones concurrentes"
+              },
+              {
+                "icon": "route",
+                "text": "Capa de Despacho Inteligente - Asignación de repartidores consciente del contexto, recálculo dinámico de ETA y rutas"
+              },
+              {
+                "icon": "visibility",
+                "text": "Visibilidad Operacional - Información en vivo sobre flujo de pedidos, retrasos y puntos de falla"
+              },
+              {
+                "icon": "analytics",
+                "text": "Optimización basada en métricas del rendimiento de delivery"
+              },
+              {
+                "icon": "cloud",
+                "text": "Fundación Escalable - Modelo de despliegue agnóstico a región"
+              },
+              {
+                "icon": "speed",
+                "text": "Construido para manejar demanda pico sin degradación"
+              }
+            ]
+          }
+        }
       },
       "saas": {
-        "title": "SaaS Analytics SDK",
-        "description": "Kit de desarrollo para integración de métricas avanzadas en aplicaciones empresariales de gran escala.",
-        "stat": "Performance +98%"
+        "title": "App Terminal de Gestión de Redes Sociales con IA",
+        "description": "Plataforma de automatización de grado empresarial para orquestar campañas de alto volumen en redes sociales y email a través de múltiples proveedores.",
+        "caseStudy": {
+          "title": "Caso de Estudio",
+          "problem": "Flujos de trabajo de automatización fragmentados a través de herramientas y proveedores desconectados. Visibilidad limitada en la ejecución de campañas, colas de mensajes y fallas de entrega. Límites de tasa de proveedores, inestabilidad de API y fallas silenciosas causando resultados impredecibles. Falta de observabilidad y auditabilidad centralizadas para actividad saliente automatizada. Dificultad para escalar campañas mientras se mantiene confiabilidad, cumplimiento y control.",
+          "problemSection": {
+            "title": "Problema",
+            "description": "Las organizaciones enfrentaron desafíos operacionales:",
+            "items": [
+              "Flujos de trabajo de automatización fragmentados a través de herramientas y proveedores desconectados",
+              "Visibilidad limitada en la ejecución de campañas, colas de mensajes y fallas de entrega",
+              "Límites de tasa de proveedores, inestabilidad de API y fallas silenciosas causando resultados impredecibles",
+              "Falta de observabilidad y auditabilidad centralizadas para actividad saliente automatizada",
+              "Dificultad para escalar campañas mientras se mantiene confiabilidad, cumplimiento y control"
+            ]
+          },
+          "solutionSection": {
+            "title": "Solución",
+            "description": "Una plataforma de automatización unificada diseñada para control operacional:",
+            "items": [
+              "Orquestación centralizada de pipelines de automatización de email y redes sociales con ejecución determinista",
+              "Monitoreo en tiempo real de ejecución de trabajos, colas y salud de proveedores",
+              "Manejo de fallas incorporado con reintentos, estrategias de backoff y clasificación de errores",
+              "Interfaz enfocada en operadores que permite diagnóstico rápido y control operacional"
+            ]
+          },
+          "capabilitiesSection": {
+            "title": "Capacidades Clave",
+            "items": [
+              {
+                "icon": "shuffle",
+                "text": "Orquestación de pipelines de campaña con ejecución programada y basada en eventos"
+              },
+              {
+                "icon": "speed",
+                "text": "Cola de mensajes de alto rendimiento con conciencia de contrapresión y límites de tasa"
+              },
+              {
+                "icon": "cloud",
+                "text": "Capa de abstracción multi-proveedor para plataformas de email y redes sociales"
+              },
+              {
+                "icon": "analytics",
+                "text": "Métricas de entrega en tiempo real y seguimiento de rendimiento histórico"
+              },
+              {
+                "icon": "route",
+                "text": "Registro estructurado de errores, reintentos y colas de mensajes muertos"
+              },
+              {
+                "icon": "visibility",
+                "text": "Registro de auditoría para todas las acciones de automatización y cambios de configuración"
+              },
+              {
+                "icon": "shield",
+                "text": "Control de acceso basado en roles y separación de ambientes (prod / staging / dry-run)"
+              }
+            ]
+          }
+        }
       },
       "fintech": {
         "title": "Fintech Core System",
@@ -212,6 +328,16 @@
     "terraform": "Terraform",
     "docker": "Docker",
     "digitalOcean": "Digital Ocean",
-    "grafana": "Grafana"
+    "grafana": "Grafana",
+    "swift": "Swift",
+    "uikit": "UIKit",
+    "mongodb": "MongoDB",
+    "kafka": "Apache Kafka",
+    "rabbitmq": "RabbitMQ",
+    "datadog": "Datadog",
+    "walletConnect": "WalletConnect",
+    "kotlin": "Kotlin",
+    "firebase": "Firebase",
+    "elastic-search": "Elasticsearch"
   }
 }

@@ -28,12 +28,22 @@ export function Hero() {
   const handleExploreClick = () => {
     const projectsSection = document.querySelector('#projects')
     if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Responsive offset: mobile vs desktop (same as Header)
+      const isMobile = window.innerWidth < 768
+      const headerOffset = isMobile ? 25 : 88
+      console.log('Explore Click - Mobile:', isMobile, 'Offset:', headerOffset) // Debug
+      const elementPosition = projectsSection.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
     }
   }
 
   return (
-    <main className="relative min-h-screen pt-32 sm:pt-32 md:pt-36 pb-16 md:pb-24 flex flex-col items-center overflow-x-hidden bg-transparent">
+    <main className="relative min-h-screen pt-32 sm:pt-32 md:pt-36 pb-12 md:pb-20 flex flex-col items-center overflow-x-hidden bg-transparent">
       {/* Blur backgrounds */}
       <div
         className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] max-w-[800px] h-[60vh] max-h-[600px] rounded-full blur-[120px] md:blur-[160px] opacity-50 pointer-events-none"

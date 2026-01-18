@@ -25,7 +25,17 @@ export function FloatingPillNav({ items, className }: FloatingPillNavProps) {
       e.preventDefault()
       const element = document.querySelector(href)
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // Responsive offset: mobile vs desktop (same as Header)
+        const isMobile = window.innerWidth < 768
+        const headerOffset = isMobile ? 25 : 88
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
         setActiveHref(href)
       }
     } else {

@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -10,9 +10,11 @@ import { ProjectModal } from './ProjectModal'
 function ProjectCard({
   project,
   onClick,
+  imagePosition = 'left',
 }: {
   project: (typeof projects)[0]
   onClick: () => void
+  imagePosition?: 'left' | 'right'
 }) {
   const t = useTranslations()
   const tTech = useTranslations('techStack')
@@ -21,30 +23,21 @@ function ProjectCard({
     : []
 
   return (
-    <div className="group cursor-pointer" onClick={onClick}>
+    <div
+      className={`group cursor-pointer flex flex-col ${
+        imagePosition === 'right' ? 'lg:flex-row-reverse' : 'lg:flex-row'
+      } gap-6 lg:gap-8 items-center`}
+      onClick={onClick}
+    >
       {/* Image Container */}
-      <div
-        className="relative w-full rounded-2xl overflow-hidden bg-surface border border-white/10 shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:border-primary/30"
-        style={
-          {
-            '--hover-shadow-color': '#4A2BFC',
-          } as React.CSSProperties
-        }
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow =
-            '0 25px 50px -12px rgba(74, 43, 252, 0.2)'
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = ''
-        }}
-      >
+      <div className="relative w-full lg:w-1/2 rounded-2xl overflow-hidden bg-surface border border-white/10 shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:border-white/20 flex-shrink-0">
         <div className="relative w-full aspect-[3/2]">
           <Image
             src={project.image || '/defi-dashboard-crypto-finance-dark-ui.png'}
             alt={t(project.titleKey as any)}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width: 1024px) 100vw, 50vw"
             quality={90}
             priority
           />
@@ -59,37 +52,26 @@ function ProjectCard({
         </div>
       </div>
 
-      {/* Title */}
-      <div className="mt-4 space-y-2">
-        <h3
-          className="text-lg font-bold font-display tracking-tight transition-colors"
-          style={{
-            color: 'inherit',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#4A2BFC'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = ''
-          }}
-        >
+      {/* Content */}
+      <div className="w-full lg:w-1/2 space-y-4">
+        <h3 className="text-2xl lg:text-3xl font-bold font-display tracking-tight">
           {t(project.titleKey as any)}
         </h3>
-        <div className="flex flex-wrap gap-2">
+        <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
+          {t(project.descriptionKey as any)}
+        </p>
+        <div className="flex flex-wrap gap-3 pt-2">
           {techIcons.map((tech) => (
             <div
               key={tech.altKey}
-              className="size-6 hover:scale-110 transition-transform"
+              className="size-8 hover:scale-110 transition-transform"
             >
               <Image
                 src={tech.logo}
                 alt={tTech(tech.altKey as any)}
-                width={24}
-                height={24}
+                width={32}
+                height={32}
                 className="w-full h-full object-contain"
-                style={
-                  tech.altKey === 'nextjs' ? { filter: 'invert(1)' } : undefined
-                }
               />
             </div>
           ))}
@@ -107,12 +89,12 @@ export function FeaturedProjects() {
 
   return (
     <>
-      <section id="projects" className="py-24 relative">
+      <section id="projects" className="py-16 md:py-24 relative">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-neon-purple/10 rounded-full blur-[100px] -z-10" />
 
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <div className="flex flex-col gap-6 mb-16">
             <div className="space-y-4">
               <div
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest"
@@ -137,24 +119,16 @@ export function FeaturedProjects() {
                 {t('description')}
               </p>
             </div>
-
-            <div className="flex gap-4">
-              <button className="size-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors">
-                <ArrowLeft className="size-5 text-gray-400" />
-              </button>
-              <button className="size-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors">
-                <ArrowRight className="size-5 text-white" />
-              </button>
-            </div>
           </div>
 
-          {/* Grid de proyectos estilo Dribbble */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {projects.map((project) => (
+          {/* Layout alternado de proyectos */}
+          <div className="space-y-16 lg:space-y-24">
+            {projects.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
                 onClick={() => setSelectedProject(project)}
+                imagePosition={index % 2 === 0 ? 'left' : 'right'}
               />
             ))}
           </div>
