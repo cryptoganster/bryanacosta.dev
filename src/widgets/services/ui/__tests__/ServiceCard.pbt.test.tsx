@@ -26,6 +26,27 @@ const serviceIdArbitrary = fc.constantFrom(
   'landing-pages'
 )
 
+// Known platforms that have icon mappings
+const knownPlatforms = [
+  'iOS',
+  'Android',
+  'Web',
+  'Windows',
+  'OpenAI',
+  'Claude',
+  'Gemini',
+  'Mistral',
+  'Ollama',
+  'Grok',
+  'DeepSeek',
+  'Qwen',
+  'MiniMax',
+  'HuggingFace',
+  'MCP',
+]
+
+const platformArbitrary = fc.constantFrom(...knownPlatforms)
+
 const serviceArbitrary: fc.Arbitrary<Service> = fc.record({
   id: serviceIdArbitrary,
   icon: fc.string({ minLength: 1 }),
@@ -35,7 +56,7 @@ const serviceArbitrary: fc.Arbitrary<Service> = fc.record({
   variant: fc.option(serviceVariantArbitrary, { nil: undefined }),
   badges: fc.option(fc.array(fc.string()), { nil: undefined }),
   features: fc.option(fc.array(fc.string()), { nil: undefined }),
-  platforms: fc.option(fc.array(fc.string()), { nil: undefined }),
+  platforms: fc.option(fc.array(platformArbitrary), { nil: undefined }),
   backgroundImage: fc.option(fc.webUrl(), { nil: undefined }),
 })
 
@@ -114,9 +135,13 @@ describe('ServiceCard Property Tests', () => {
         const { container } = renderWithIntl(<ServiceCard service={service} />)
 
         if (service.platforms && service.platforms.length > 0) {
-          // Platforms should be rendered
+          // Platforms are now rendered as SVG icons with alt text
+          // All platforms in the test are known platforms (from platformArbitrary)
           service.platforms.forEach((platform) => {
-            expect(container.textContent).toContain(platform)
+            const platformImage = container.querySelector(
+              `img[alt="${platform}"]`
+            )
+            expect(platformImage).toBeTruthy()
           })
         }
       }),

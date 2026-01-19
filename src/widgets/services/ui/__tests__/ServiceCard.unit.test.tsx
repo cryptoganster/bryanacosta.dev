@@ -11,7 +11,7 @@ const mockService: Service = {
   size: 'large',
   colSpan: 2,
   rowSpan: 2,
-  badges: ['React', 'Node'],
+  // Badges removed as per recent changes
 }
 
 const mockServiceWithFeatures: Service = {
@@ -20,7 +20,7 @@ const mockServiceWithFeatures: Service = {
   size: 'medium',
   colSpan: 1,
   rowSpan: 2,
-  features: ['Zero Downtime', 'Data Integrity'],
+  features: ['Zero Downtime', 'Rollback Strategy', 'Cost Optimization'],
 }
 
 const mockServiceWithPlatforms: Service = {
@@ -64,32 +64,50 @@ describe('ServiceCard', () => {
     // Title
     expect(screen.getByText('Custom Software & MVPs')).toBeInTheDocument()
 
-    // Description
+    // Description - updated to match new text
     expect(
-      screen.getByText(/Scalable architecture for high-growth startups/)
+      screen.getByText(/Production-ready software built to scale/)
     ).toBeInTheDocument()
   })
 
   it('should render badges when present', () => {
-    renderWithIntl(<ServiceCard service={mockService} />)
+    const serviceWithBadges: Service = {
+      id: 'landing-pages',
+      icon: 'web',
+      size: 'small',
+      colSpan: 1,
+      rowSpan: 1,
+      badges: ['SEO', 'Fast'],
+    }
+    renderWithIntl(<ServiceCard service={serviceWithBadges} />)
 
-    expect(screen.getByText('React')).toBeInTheDocument()
-    expect(screen.getByText('Node')).toBeInTheDocument()
+    expect(screen.getByText('SEO')).toBeInTheDocument()
+    expect(screen.getByText('Fast')).toBeInTheDocument()
   })
 
   it('should render features when present', () => {
     renderWithIntl(<ServiceCard service={mockServiceWithFeatures} />)
 
     expect(screen.getByText('Zero Downtime')).toBeInTheDocument()
-    expect(screen.getByText('Data Integrity')).toBeInTheDocument()
+    expect(screen.getByText('Rollback Strategy')).toBeInTheDocument()
+    expect(screen.getByText('Cost Optimization')).toBeInTheDocument()
   })
 
   it('should render platforms when present', () => {
-    renderWithIntl(<ServiceCard service={mockServiceWithPlatforms} />)
+    const { container } = renderWithIntl(
+      <ServiceCard service={mockServiceWithPlatforms} />
+    )
 
-    expect(screen.getByText('iOS')).toBeInTheDocument()
-    expect(screen.getByText('Android')).toBeInTheDocument()
-    expect(screen.getByText('Web')).toBeInTheDocument()
+    // Platforms are now rendered as images, not text
+    const platformImages = container.querySelectorAll(
+      'img[alt="iOS"], img[alt="Android"], img[alt="Web"]'
+    )
+    expect(platformImages.length).toBe(3)
+
+    // Verify each platform image exists
+    expect(container.querySelector('img[alt="iOS"]')).toBeInTheDocument()
+    expect(container.querySelector('img[alt="Android"]')).toBeInTheDocument()
+    expect(container.querySelector('img[alt="Web"]')).toBeInTheDocument()
   })
 
   it('should have ai-card class for AI variant', () => {
