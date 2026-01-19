@@ -2,21 +2,6 @@
 COMMIT_MSG_FILE=$1
 COMMIT_SOURCE=$2
 
-# Check if --no-verify was used (detect bypass attempt)
-if [ -n "$HUSKY_SKIP_HOOKS" ] || [ -n "$HUSKY" ]; then
-  if [ "$HUSKY" = "0" ]; then
-    echo ""
-    echo "🚫 CRITICAL ERROR: Hook bypass detected!"
-    echo ""
-    echo "The use of --no-verify or HUSKY=0 is strictly forbidden."
-    echo "This project enforces mandatory code quality checks and PR workflow."
-    echo ""
-    echo "If you believe this is blocking legitimate work, please contact the team lead."
-    echo ""
-    exit 1
-  fi
-fi
-
 # Only run this check for merge commits
 if [ "$COMMIT_SOURCE" = "merge" ]; then
   # Get the current branch name
@@ -37,7 +22,9 @@ if [ "$COMMIT_SOURCE" = "merge" ]; then
       echo "  3. Wait for review and approval"
       echo "  4. Merge through GitHub's interface"
       echo ""
-      echo "⚠️  There is NO bypass option. This is a mandatory policy."
+      echo "⚠️  NOTE: While this hook can be bypassed locally with HUSKY=0 or --no-verify,"
+      echo "    GitHub branch protection rules will prevent the push to $branch."
+      echo "    Any attempt to bypass this workflow will be blocked at the remote level."
       echo ""
       exit 1
     fi
