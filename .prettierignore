@@ -9,3 +9,10 @@ build
 coverage
 *.min.js
 *.min.css
+
+# Terraform files and documentation
+terraform/
+*.tf
+*.tfvars
+*.tfstate
+*.tfstate.backup
