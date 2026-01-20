@@ -195,6 +195,8 @@ describe('Translation Fallback Behavior', () => {
             'social',
             'techStack',
             'services',
+            'contact',
+            'validation',
           ]
           expect(validNamespaces).toContain(parts[0])
 

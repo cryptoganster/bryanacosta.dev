@@ -55,6 +55,8 @@ describe('Translation File Structure', () => {
     'interpolation',
     'social',
     'techStack',
+    'contact',
+    'validation',
   ]
 
   it('should have all required namespaces in Spanish translations', () => {

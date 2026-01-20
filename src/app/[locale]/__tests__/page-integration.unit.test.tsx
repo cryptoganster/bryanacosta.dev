@@ -21,6 +21,10 @@ vi.mock('@/widgets/featured-projects/ui/FeaturedProjects', () => ({
   ),
 }))
 
+vi.mock('@/widgets/contact', () => ({
+  Contact: () => <section data-testid="contact">Contact</section>,
+}))
+
 describe('Page Integration', () => {
   it('should render all sections in correct order', () => {
     const { container } = render(<Page />)
@@ -29,17 +33,25 @@ describe('Page Integration', () => {
     const hero = screen.getByTestId('hero')
     const services = screen.getByTestId('services')
     const featuredProjects = screen.getByTestId('featured-projects')
+    const contact = screen.getByTestId('contact')
 
     expect(header).toBeInTheDocument()
     expect(hero).toBeInTheDocument()
     expect(services).toBeInTheDocument()
     expect(featuredProjects).toBeInTheDocument()
+    expect(contact).toBeInTheDocument()
 
     // Get all sections in DOM order
     const sections = Array.from(container.querySelectorAll('[data-testid]'))
     const order = sections.map((el) => el.getAttribute('data-testid'))
 
-    expect(order).toEqual(['header', 'hero', 'services', 'featured-projects'])
+    expect(order).toEqual([
+      'header',
+      'hero',
+      'services',
+      'featured-projects',
+      'contact',
+    ])
   })
 
   it('should render Services component after Hero', () => {
