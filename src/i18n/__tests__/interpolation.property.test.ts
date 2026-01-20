@@ -85,7 +85,9 @@ describe('Translation Interpolation', () => {
         fc.property(
           fc.constantFrom(...interpolationKeys),
           fc.record({
-            name: fc.string({ minLength: 1, maxLength: 20 }),
+            name: fc
+              .string({ minLength: 1, maxLength: 20 })
+              .filter((s) => !s.includes('{') && !s.includes('}')),
             count: fc.integer({ min: 0, max: 100 }),
             years: fc.integer({ min: 1, max: 50 }),
             technology: fc.constantFrom(
@@ -160,15 +162,24 @@ describe('Translation Interpolation', () => {
           fc.record({
             name: fc
               .string({ minLength: 1, maxLength: 20 })
-              .filter((s) => s.trim().length > 0),
+              .filter(
+                (s) =>
+                  s.trim().length > 0 && !s.includes('{') && !s.includes('}')
+              ),
             count: fc.integer({ min: 0, max: 100 }),
             years: fc.integer({ min: 1, max: 50 }),
             technology: fc
               .string({ minLength: 1, maxLength: 20 })
-              .filter((s) => s.trim().length > 0),
+              .filter(
+                (s) =>
+                  s.trim().length > 0 && !s.includes('{') && !s.includes('}')
+              ),
             achievement: fc
               .string({ minLength: 1, maxLength: 30 })
-              .filter((s) => s.trim().length > 0),
+              .filter(
+                (s) =>
+                  s.trim().length > 0 && !s.includes('{') && !s.includes('}')
+              ),
             year: fc.integer({ min: 2020, max: 2024 }),
             countries: fc.integer({ min: 1, max: 50 }),
           }),

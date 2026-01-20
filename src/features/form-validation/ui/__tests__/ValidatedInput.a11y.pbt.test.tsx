@@ -100,7 +100,7 @@ describe('Property 10: Screen reader error announcements', () => {
             </NextIntlClientProvider>
           )
 
-          const input = screen.getByRole('textbox')
+          const input = screen.getByRole('textbox', { name: config.label })
 
           // Initially should not have error state
           expect(input).toHaveAttribute('aria-invalid', 'false')
