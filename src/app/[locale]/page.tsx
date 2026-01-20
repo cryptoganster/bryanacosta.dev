@@ -1,6 +1,7 @@
 import { Header } from '@/widgets/header/ui/Header'
 import { Hero } from '@/widgets/hero/ui'
 import { Services } from '@/widgets/services'
+import { WorkflowProcess } from '@/widgets/workflow-process'
 import { FeaturedProjects } from '@/widgets/featured-projects/ui/FeaturedProjects'
 import { Contact } from '@/widgets/contact'
 
@@ -12,6 +13,7 @@ export default function Page() {
       <Header />
       <Hero />
       <Services />
+      <WorkflowProcess />
       <FeaturedProjects />
       <Contact />
     </div>
