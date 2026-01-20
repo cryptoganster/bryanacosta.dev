@@ -60,7 +60,7 @@ describe('Header', () => {
     mockUseTranslations.mockImplementation((key: string) => {
       const translations: Record<string, string> = {
         brand: 'DevPortfolio',
-        'nav.solutions': 'Soluciones',
+        'nav.services': 'Servicios',
         'nav.projects': 'Proyectos',
         'nav.stack': 'Stack',
         'nav.journey': 'Trayectoria',
@@ -74,7 +74,7 @@ describe('Header', () => {
     expect(screen.getByText('DevPortfolio')).toBeDefined()
 
     // Check navigation links
-    expect(screen.getByText('Soluciones')).toBeDefined()
+    expect(screen.getByText('Servicios')).toBeDefined()
     expect(screen.getByText('Proyectos')).toBeDefined()
     expect(screen.getByText('Stack')).toBeDefined()
     expect(screen.getByText('Trayectoria')).toBeDefined()
@@ -85,7 +85,7 @@ describe('Header', () => {
     mockUseTranslations.mockImplementation((key: string) => {
       const translations: Record<string, string> = {
         brand: 'DevPortfolio',
-        'nav.solutions': 'Solutions',
+        'nav.services': 'Services',
         'nav.projects': 'Projects',
         'nav.stack': 'Stack',
         'nav.journey': 'Journey',
@@ -99,7 +99,7 @@ describe('Header', () => {
     expect(screen.getByText('DevPortfolio')).toBeDefined()
 
     // Check navigation links
-    expect(screen.getByText('Solutions')).toBeDefined()
+    expect(screen.getByText('Services')).toBeDefined()
     expect(screen.getByText('Projects')).toBeDefined()
     expect(screen.getByText('Stack')).toBeDefined()
     expect(screen.getByText('Journey')).toBeDefined()
@@ -118,14 +118,14 @@ describe('Header', () => {
 
     // Verify all expected translation keys were requested
     expect(translationKeys).toContain('brand')
-    expect(translationKeys).toContain('nav.solutions')
+    expect(translationKeys).toContain('nav.services')
     expect(translationKeys).toContain('nav.projects')
     expect(translationKeys).toContain('nav.stack')
     expect(translationKeys).toContain('nav.journey')
 
     // Verify no hardcoded Spanish or English text
-    expect(screen.queryByText('Soluciones')).toBeNull()
-    expect(screen.queryByText('Solutions')).toBeNull()
+    expect(screen.queryByText('Servicios')).toBeNull()
+    expect(screen.queryByText('Services')).toBeNull()
   })
 
   it('should integrate LanguageSwitcher component', () => {

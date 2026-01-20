@@ -24,7 +24,7 @@ describe('Services Widget', () => {
     expect(screen.getByText('Services')).toBeInTheDocument()
     expect(screen.getByText('WHAT I CAN DO')).toBeInTheDocument()
     expect(
-      screen.getByText(/We build resilient digital infrastructure/)
+      screen.getByText(/From early MVPs to complex enterprise migrations/)
     ).toBeInTheDocument()
   })
 
