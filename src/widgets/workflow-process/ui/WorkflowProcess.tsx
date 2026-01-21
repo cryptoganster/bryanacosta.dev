@@ -72,6 +72,72 @@ export function WorkflowProcess() {
             background: 'radial-gradient(ellipse at bottom right, rgba(0,0,0,0.7) 0%, transparent 60%)',
           }}
         />
+
+        {/* Additional layer - top right corner */}
+        <div 
+          className="absolute top-0 right-0 w-80 h-80"
+          style={{
+            background: 'radial-gradient(circle at top right, rgba(0,0,0,0.6) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Additional layer - bottom left corner */}
+        <div 
+          className="absolute bottom-0 left-0 w-80 h-80"
+          style={{
+            background: 'radial-gradient(circle at bottom left, rgba(0,0,0,0.6) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Middle left organic shape */}
+        <div 
+          className="absolute top-1/3 left-0 w-64 h-96"
+          style={{
+            background: 'radial-gradient(ellipse at left, rgba(0,0,0,0.5) 0%, transparent 65%)',
+          }}
+        />
+
+        {/* Middle right organic shape */}
+        <div 
+          className="absolute top-1/2 right-0 w-72 h-80"
+          style={{
+            background: 'radial-gradient(ellipse at right, rgba(0,0,0,0.5) 0%, transparent 65%)',
+          }}
+        />
+
+        {/* Upper middle scattered overlay */}
+        <div 
+          className="absolute top-20 left-1/4 w-56 h-56"
+          style={{
+            background: 'radial-gradient(circle, rgba(0,0,0,0.4) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Lower middle scattered overlay */}
+        <div 
+          className="absolute bottom-32 right-1/3 w-64 h-64"
+          style={{
+            background: 'radial-gradient(circle, rgba(0,0,0,0.4) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* Center-left asymmetric overlay */}
+        <div 
+          className="absolute top-1/2 left-1/4 -translate-y-1/2 w-48 h-72"
+          style={{
+            background: 'radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, transparent 75%)',
+            transform: 'rotate(-15deg)',
+          }}
+        />
+
+        {/* Center-right asymmetric overlay */}
+        <div 
+          className="absolute top-1/3 right-1/4 w-52 h-80"
+          style={{
+            background: 'radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, transparent 75%)',
+            transform: 'rotate(20deg)',
+          }}
+        />
       </div>
 
       {/* Abstract gradient shapes - Metallic white blurs - Lower z-index */}
