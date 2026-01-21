@@ -74,7 +74,7 @@ export function FloatingPillNav({ items, activeSection, className }: FloatingPil
               if (!isActive) {
                 e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)'
                 e.currentTarget.style.backdropFilter = 'blur(10px)'
-                e.currentTarget.style.WebkitBackdropFilter = 'blur(10px)'
+                ;(e.currentTarget.style as any).WebkitBackdropFilter = 'blur(10px)'
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
               }
             }}
@@ -82,7 +82,7 @@ export function FloatingPillNav({ items, activeSection, className }: FloatingPil
               if (!isActive) {
                 e.currentTarget.style.background = 'transparent'
                 e.currentTarget.style.backdropFilter = 'none'
-                e.currentTarget.style.WebkitBackdropFilter = 'none'
+                ;(e.currentTarget.style as any).WebkitBackdropFilter = 'none'
                 e.currentTarget.style.borderColor = 'transparent'
               }
             }}
