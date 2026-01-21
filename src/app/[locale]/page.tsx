@@ -5,7 +5,8 @@ import { WorkflowProcess } from '@/widgets/workflow-process'
 import { FeaturedProjects } from '@/widgets/featured-projects/ui/FeaturedProjects'
 import { Contact } from '@/widgets/contact'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
+export const revalidate = 3600 // Revalidate every hour
 
 export default function Page() {
   return (

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "dev": "next dev",
     "lint": "eslint . --ignore-pattern .next --ignore-pattern node_modules",
     "lint:fix": "eslint . --fix --ignore-pattern .next --ignore-pattern node_modules",
@@ -77,6 +78,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@next/bundle-analyzer": "^16.1.4",
     "@tailwindcss/postcss": "^4.1.9",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",

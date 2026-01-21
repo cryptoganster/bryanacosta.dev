@@ -20,35 +20,43 @@ const notoSans = Noto_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-sans',
+  display: 'swap',
+  preload: true,
 })
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-display',
+  display: 'swap',
+  preload: true,
 })
 
 const geistMono = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
+  display: 'swap',
 })
 
 const figtree = Figtree({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-figtree',
+  display: 'swap',
 })
 
 const cookie = Cookie({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--font-cookie',
+  display: 'swap',
 })
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   variable: '--font-bricolage',
+  display: 'swap',
 })
 
 export async function generateMetadata({
@@ -123,9 +131,15 @@ export default async function LocaleLayout({
     <ViewTransitions>
       <html lang={locale} className="dark">
         <head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
           />
         </head>
         <body
