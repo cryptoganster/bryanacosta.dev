@@ -10,7 +10,7 @@ import { useTranslations } from 'next-intl'
 
 export function Header() {
   const t = useTranslations('header')
-  const { items: navItems } = useNavigation()
+  const { items: navItems, activeSection } = useNavigation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // Restore menu state after language change
@@ -78,7 +78,7 @@ export function Header() {
 
             {/* Navigation - Desktop */}
             <div className="hidden md:block">
-              <FloatingPillNav items={navItems} />
+              <FloatingPillNav items={navItems} activeSection={activeSection} />
             </div>
 
             {/* Actions */}

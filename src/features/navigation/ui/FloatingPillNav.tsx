@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { Link } from '@/i18n/routing'
 import { cn } from '@/shared/lib/cn'
 
@@ -11,11 +10,11 @@ interface NavItem {
 
 interface FloatingPillNavProps {
   items: NavItem[]
+  activeSection: string | null
   className?: string
 }
 
-export function FloatingPillNav({ items, className }: FloatingPillNavProps) {
-  const [activeHref, setActiveHref] = useState('#')
+export function FloatingPillNav({ items, activeSection, className }: FloatingPillNavProps) {
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -36,17 +35,14 @@ export function FloatingPillNav({ items, className }: FloatingPillNavProps) {
           top: offsetPosition,
           behavior: 'smooth',
         })
-        setActiveHref(href)
       }
-    } else {
-      setActiveHref(href)
     }
   }
 
   return (
     <nav className={cn('inline-flex items-center gap-2', className)}>
       {items.map((item) => {
-        const isActive = activeHref === item.href
+        const isActive = activeSection === item.href
 
         return (
           <Link
