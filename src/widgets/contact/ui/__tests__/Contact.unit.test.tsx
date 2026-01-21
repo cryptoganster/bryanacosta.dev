@@ -144,8 +144,7 @@ describe('Contact Widget Unit Tests', () => {
 
       const section = container.querySelector('section')
       expect(section).toHaveClass('py-16')
-      expect(section).toHaveClass('px-4')
-      expect(section).toHaveClass('sm:px-6')
+      expect(section).toHaveClass('px-6')
     })
   })
 

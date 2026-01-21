@@ -48,6 +48,7 @@ describe('Translation File Structure', () => {
     'projects',
     'footer',
     'stats',
+    'workflow',
     'services',
     'floatingCards',
     'skills',

@@ -271,8 +271,7 @@ describe('Services Integration Tests', () => {
 
       const section = container.querySelector('section')
       expect(section?.className).toContain('py-16')
-      expect(section?.className).toContain('px-4')
-      expect(section?.className).toContain('sm:px-6')
+      expect(section?.className).toContain('px-6')
     })
 
     it('should have responsive header layout', () => {

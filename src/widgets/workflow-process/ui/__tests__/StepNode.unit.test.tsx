@@ -25,7 +25,9 @@ describe('StepNode', () => {
     const { container } = render(<StepNode step={mockStep} isFirst={false} />)
     const node = container.firstChild as HTMLElement
     
-    expect(node.className).toContain('border-gray-700')
+    // All nodes now have border-white/20 by default and change to #4C02FB on hover
+    expect(node.className).toContain('border-white/20')
+    expect(node.className).toContain('group-hover:border-[#4C02FB]')
   })
 
   it('should render icon correctly', () => {

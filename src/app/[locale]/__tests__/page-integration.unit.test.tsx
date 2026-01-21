@@ -11,6 +11,10 @@ vi.mock('@/widgets/hero/ui', () => ({
   Hero: () => <section data-testid="hero">Hero</section>,
 }))
 
+vi.mock('@/widgets/workflow-process', () => ({
+  WorkflowProcess: () => <section data-testid="workflow">Workflow</section>,
+}))
+
 vi.mock('@/widgets/services', () => ({
   Services: () => <section data-testid="services">Services</section>,
 }))
@@ -31,12 +35,14 @@ describe('Page Integration', () => {
 
     const header = screen.getByTestId('header')
     const hero = screen.getByTestId('hero')
+    const workflow = screen.getByTestId('workflow')
     const services = screen.getByTestId('services')
     const featuredProjects = screen.getByTestId('featured-projects')
     const contact = screen.getByTestId('contact')
 
     expect(header).toBeInTheDocument()
     expect(hero).toBeInTheDocument()
+    expect(workflow).toBeInTheDocument()
     expect(services).toBeInTheDocument()
     expect(featuredProjects).toBeInTheDocument()
     expect(contact).toBeInTheDocument()
@@ -48,6 +54,7 @@ describe('Page Integration', () => {
     expect(order).toEqual([
       'header',
       'hero',
+      'workflow',
       'services',
       'featured-projects',
       'contact',
@@ -61,11 +68,17 @@ describe('Page Integration', () => {
     const heroIndex = sections.findIndex(
       (el) => el.getAttribute('data-testid') === 'hero'
     )
+    const workflowIndex = sections.findIndex(
+      (el) => el.getAttribute('data-testid') === 'workflow'
+    )
     const servicesIndex = sections.findIndex(
       (el) => el.getAttribute('data-testid') === 'services'
     )
 
-    expect(servicesIndex).toBeGreaterThan(heroIndex)
+    // Workflow comes after Hero
+    expect(workflowIndex).toBeGreaterThan(heroIndex)
+    // Services comes after Workflow
+    expect(servicesIndex).toBeGreaterThan(workflowIndex)
   })
 
   it('should render Services component before FeaturedProjects', () => {

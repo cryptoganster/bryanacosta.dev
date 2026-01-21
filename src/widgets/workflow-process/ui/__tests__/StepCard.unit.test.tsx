@@ -75,7 +75,8 @@ describe('StepCard', () => {
     const { container } = render(<StepCard step={mockStep} />)
     const card = container.firstChild as HTMLElement
     
-    expect(card.className).toContain('hover:border-[#4C02FB]/50')
+    // StepCard has hover:scale and group-hover:-translate-y-1 effects
+    expect(card.className).toContain('hover:scale-[1.02]')
     expect(card.className).toContain('group-hover:-translate-y-1')
   })
 })

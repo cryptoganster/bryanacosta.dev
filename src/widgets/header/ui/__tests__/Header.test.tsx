@@ -62,8 +62,6 @@ describe('Header', () => {
         brand: 'DevPortfolio',
         'nav.services': 'Servicios',
         'nav.projects': 'Proyectos',
-        'nav.stack': 'Stack',
-        'nav.journey': 'Trayectoria',
       }
       return translations[key] || key
     })
@@ -73,11 +71,10 @@ describe('Header', () => {
     // Check brand name
     expect(screen.getByText('DevPortfolio')).toBeDefined()
 
-    // Check navigation links
+    // Check navigation links (only 3 items now: Workflow, Services, Projects)
+    expect(screen.getByText('Workflow')).toBeDefined()
     expect(screen.getByText('Servicios')).toBeDefined()
     expect(screen.getByText('Proyectos')).toBeDefined()
-    expect(screen.getByText('Stack')).toBeDefined()
-    expect(screen.getByText('Trayectoria')).toBeDefined()
   })
 
   it('should render with English translations', () => {
@@ -87,8 +84,6 @@ describe('Header', () => {
         brand: 'DevPortfolio',
         'nav.services': 'Services',
         'nav.projects': 'Projects',
-        'nav.stack': 'Stack',
-        'nav.journey': 'Journey',
       }
       return translations[key] || key
     })
@@ -98,11 +93,10 @@ describe('Header', () => {
     // Check brand name
     expect(screen.getByText('DevPortfolio')).toBeDefined()
 
-    // Check navigation links
+    // Check navigation links (only 3 items now: Workflow, Services, Projects)
+    expect(screen.getByText('Workflow')).toBeDefined()
     expect(screen.getByText('Services')).toBeDefined()
     expect(screen.getByText('Projects')).toBeDefined()
-    expect(screen.getByText('Stack')).toBeDefined()
-    expect(screen.getByText('Journey')).toBeDefined()
   })
 
   it('should use translation keys for all text content', () => {
@@ -116,12 +110,10 @@ describe('Header', () => {
 
     render(<Header />)
 
-    // Verify all expected translation keys were requested
+    // Verify all expected translation keys were requested (only 3 nav items now)
     expect(translationKeys).toContain('brand')
     expect(translationKeys).toContain('nav.services')
     expect(translationKeys).toContain('nav.projects')
-    expect(translationKeys).toContain('nav.stack')
-    expect(translationKeys).toContain('nav.journey')
 
     // Verify no hardcoded Spanish or English text
     expect(screen.queryByText('Servicios')).toBeNull()
