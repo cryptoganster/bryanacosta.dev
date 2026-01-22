@@ -141,6 +141,25 @@ export default async function LocaleLayout({
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
           />
+          {/* Preload critical images */}
+          <link
+            rel="preload"
+            as="image"
+            href="/professional-developer-portrait-dark-background.png"
+            type="image/png"
+          />
+          <link
+            rel="preload"
+            as="image"
+            href="/lamp-icon.svg"
+            type="image/svg+xml"
+          />
+          <link
+            rel="preload"
+            as="image"
+            href="/code-square-rounded.svg"
+            type="image/svg+xml"
+          />
         </head>
         <body
           className={`${notoSans.variable} ${spaceGrotesk.variable} ${geistMono.variable} ${figtree.variable} ${cookie.variable} ${bricolageGrotesque.variable} font-sans antialiased overflow-x-hidden`}

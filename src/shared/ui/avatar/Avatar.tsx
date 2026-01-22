@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 export function Avatar() {
   const t = useTranslations('hero')
@@ -28,10 +29,15 @@ export function Avatar() {
         }}
       >
         <div className="w-full h-full rounded-full bg-cover bg-center overflow-hidden bg-surface shadow-2xl">
-          <img
+          <Image
             alt={t('avatarAlt')}
             className="w-full h-full object-cover"
             src="/professional-developer-portrait-dark-background.png"
+            width={176}
+            height={176}
+            priority
+            quality={90}
+            sizes="(max-width: 768px) 144px, 176px"
           />
         </div>
       </div>

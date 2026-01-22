@@ -6,15 +6,23 @@ import Image from 'next/image'
 import { Button } from '@/shared/ui/button'
 import { Avatar } from '@/shared/ui/avatar'
 import { SocialLinks } from '@/features/social-share/ui/SocialLinks'
-import RotatingText from '@/shared/ui/rotating-text'
+import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
+
+// Lazy load RotatingText to improve initial LCP
+const RotatingText = dynamic(() => import('@/shared/ui/rotating-text'), {
+  ssr: false,
+  loading: () => <span className="text-white">startups</span>,
+})
 
 export function Hero() {
   const t = useTranslations('hero')
   const rotatingWords = t.raw('rotatingWords') as string[]
   const [isMobile, setIsMobile] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
@@ -108,6 +116,7 @@ export function Hero() {
               width={16}
               height={16}
               className="size-4 sm:size-5 md:size-6"
+              priority
             />
             {t('badge')}
           </div>
@@ -132,6 +141,7 @@ export function Hero() {
                   style={{
                     transform: 'rotate(15deg)',
                   }}
+                  priority
                 />
               </span>
             </span>
@@ -149,27 +159,33 @@ export function Hero() {
                     '0 4px 20px rgba(72, 0, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 }}
               >
-                <RotatingText
-                  texts={rotatingWords}
-                  mainClassName="inline-flex"
-                  elementLevelClassName="text-white"
-                  splitBy={isMobile ? 'words' : 'characters'}
-                  staggerDuration={isMobile ? 0 : 0.05}
-                  staggerFrom="first"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={
-                    isMobile
-                      ? { duration: 0.3 }
-                      : {
-                          type: 'spring',
-                          damping: 25,
-                          stiffness: 300,
-                        }
-                  }
-                  rotationInterval={3000}
-                />
+                {isClient ? (
+                  <RotatingText
+                    texts={rotatingWords}
+                    mainClassName="inline-flex"
+                    elementLevelClassName="text-white"
+                    splitBy={isMobile ? 'words' : 'characters'}
+                    staggerDuration={isMobile ? 0 : 0.05}
+                    staggerFrom="first"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={
+                      isMobile
+                        ? { duration: 0.3 }
+                        : {
+                            type: 'spring',
+                            damping: 25,
+                            stiffness: 300,
+                          }
+                    }
+                    rotationInterval={3000}
+                  />
+                ) : (
+                  <span className="text-white inline-flex">
+                    {rotatingWords[0]}
+                  </span>
+                )}
               </span>
             </span>
           </h1>
@@ -216,6 +232,7 @@ export function Hero() {
                 width={24}
                 height={24}
                 className="ml-1 size-6"
+                priority
               />
             </Button>
             <Button
@@ -248,6 +265,7 @@ export function Hero() {
                 width={64}
                 height={64}
                 className="ml-1 size-6"
+                priority
               />
             </Button>
             <SocialLinks />
