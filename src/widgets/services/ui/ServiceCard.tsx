@@ -96,10 +96,6 @@ export function ServiceCard({ service }: ServiceCardProps) {
     // Glassmorphism base styles
     'bg-white/5 backdrop-blur-md border border-white/10',
     'shadow-[0_8px_32px_0_rgba(0,230,139,0.1)]',
-    // Hover effects
-    'transform-gpu transition-all duration-300 ease-out',
-    'hover:-translate-y-1 hover:border-[#00E68B]/50 hover:bg-white/10',
-    'hover:shadow-[0_8px_32px_0_rgba(0,230,139,0.2)]',
     service.variant === 'ai' && 'ai-card',
     service.size === 'large' && 'justify-between p-8',
     service.size === 'medium' && 'justify-between p-6',
@@ -112,12 +108,6 @@ export function ServiceCard({ service }: ServiceCardProps) {
       role="article"
       aria-label={t(`${service.id}.title`)}
     >
-      {/* Glassmorphism gradient overlay */}
-      <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#00E68B]/10 via-transparent to-[#00E68B]/5" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,230,139,0.15),transparent_70%)]" />
-      </div>
-
       {/* Frosted glass texture */}
       <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
         <div
@@ -339,14 +329,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
                 <img
                   src="/device-logos/devices.svg"
                   alt="Multiple devices"
-                  className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity"
+                  className="w-full h-auto opacity-80"
                 />
               </div>
 
               {/* Title - Left aligned */}
-              <h3 className="text-xl font-bold group-hover:text-[#00E68B] transition-colors">
-                {t(`${service.id}.title`)}
-              </h3>
+              <h3 className="text-xl font-bold">{t(`${service.id}.title`)}</h3>
 
               {/* Platform logos - Left aligned */}
               {service.platforms && service.platforms.length > 0 && (
@@ -392,7 +380,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
               <div className="space-y-3 flex flex-col">
                 {/* Title and Description */}
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold group-hover:text-[#00E68B] transition-colors">
+                  <h3 className="text-xl font-bold">
                     {t(`${service.id}.title`)}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -411,7 +399,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
                           className="flex items-center gap-1.5"
                         >
                           <span
-                            className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-[#00E68B] transition-colors"
+                            className="material-symbols-outlined text-lg text-muted-foreground"
                             aria-hidden="true"
                           >
                             {icon}
@@ -481,12 +469,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
             <>
               <div className="flex items-center gap-3 mb-2">
                 <span
-                  className="material-symbols-outlined text-2xl text-muted-foreground group-hover:text-[#00E68B] transition-colors icon-glow"
+                  className="material-symbols-outlined text-2xl text-muted-foreground icon-glow"
                   aria-label={`${t(`${service.id}.title`)} icon`}
                 >
                   {service.icon}
                 </span>
-                <h3 className="text-xl font-bold group-hover:text-[#00E68B] transition-colors">
+                <h3 className="text-xl font-bold">
                   {t(`${service.id}.title`)}
                 </h3>
               </div>

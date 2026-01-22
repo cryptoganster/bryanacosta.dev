@@ -122,16 +122,17 @@ describe('Services Integration Tests', () => {
       expect(container.innerHTML).toMatch(/text-(primary|muted|foreground)/)
     })
 
-    it('should have hover effects that work with theme', () => {
+    it('should have proper card structure without hover effects', () => {
       const { container } = render(<Services />)
 
-      // All cards should have hover effect class
+      // All cards should have card-hover-effect class
       const cards = container.querySelectorAll('.card-hover-effect')
       expect(cards.length).toBe(6)
 
-      // Cards should have hover classes
+      // Cards should have basic styling (hover effects removed)
       cards.forEach((card) => {
-        expect(card.className).toContain('hover:')
+        expect(card.className).toContain('rounded-xl')
+        expect(card.className).toContain('backdrop-blur-md')
       })
     })
 
